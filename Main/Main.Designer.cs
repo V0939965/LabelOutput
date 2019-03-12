@@ -33,15 +33,9 @@
             this.iShow = new System.Windows.Forms.PictureBox();
             this.iConfiguration = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.iDistance2Label = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.iStart = new System.Windows.Forms.Button();
             this.iLabelLog = new System.Windows.Forms.Label();
             this.iLog = new System.Windows.Forms.Label();
@@ -54,14 +48,16 @@
             this.iFromCamera = new System.Windows.Forms.RadioButton();
             this.iLinkFolder = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.iInterface.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iShow)).BeginInit();
             this.iConfiguration.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.iPannelChooseFolder.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // iInterface
@@ -86,59 +82,32 @@
             // 
             // iConfiguration
             // 
-            this.iConfiguration.Controls.Add(this.button1);
-            this.iConfiguration.Controls.Add(this.panel3);
-            this.iConfiguration.Controls.Add(this.panel2);
             this.iConfiguration.Controls.Add(this.panel1);
+            this.iConfiguration.Controls.Add(this.button1);
+            this.iConfiguration.Controls.Add(this.panel2);
             this.iConfiguration.Location = new System.Drawing.Point(489, 12);
             this.iConfiguration.Name = "iConfiguration";
-            this.iConfiguration.Size = new System.Drawing.Size(183, 232);
+            this.iConfiguration.Size = new System.Drawing.Size(183, 114);
             this.iConfiguration.TabIndex = 1;
             this.iConfiguration.TabStop = false;
             this.iConfiguration.Text = "Configuration";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(92, 203);
+            this.button1.Location = new System.Drawing.Point(92, 83);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 21);
             this.button1.TabIndex = 6;
             this.button1.TabStop = false;
             this.button1.Text = "Parameter >>>";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.comboBox1);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(6, 19);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(171, 26);
-            this.panel3.TabIndex = 2;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(56, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(112, 21);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Product:";
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.richTextBox1);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(6, 83);
+            this.panel2.Location = new System.Drawing.Point(6, 19);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(171, 26);
             this.panel2.TabIndex = 2;
@@ -152,7 +121,7 @@
             this.richTextBox1.Size = new System.Drawing.Size(50, 20);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.TabStop = false;
-            this.richTextBox1.Text = "85.0";
+            this.richTextBox1.Text = "88.0";
             // 
             // label2
             // 
@@ -162,35 +131,6 @@
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Distance OK (mm)";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.iDistance2Label);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(6, 51);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(171, 26);
-            this.panel1.TabIndex = 0;
-            // 
-            // iDistance2Label
-            // 
-            this.iDistance2Label.Location = new System.Drawing.Point(118, 3);
-            this.iDistance2Label.Multiline = false;
-            this.iDistance2Label.Name = "iDistance2Label";
-            this.iDistance2Label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.iDistance2Label.Size = new System.Drawing.Size(50, 20);
-            this.iDistance2Label.TabIndex = 1;
-            this.iDistance2Label.TabStop = false;
-            this.iDistance2Label.Text = "10.0";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "2 Label Distance (mm)";
             // 
             // iStart
             // 
@@ -269,9 +209,9 @@
             // 
             // iChooseFolder
             // 
-            this.iChooseFolder.Location = new System.Drawing.Point(135, 85);
+            this.iChooseFolder.Location = new System.Drawing.Point(135, 84);
             this.iChooseFolder.Name = "iChooseFolder";
-            this.iChooseFolder.Size = new System.Drawing.Size(29, 19);
+            this.iChooseFolder.Size = new System.Drawing.Size(29, 21);
             this.iChooseFolder.TabIndex = 3;
             this.iChooseFolder.TabStop = false;
             this.iChooseFolder.Text = "...";
@@ -310,13 +250,43 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 1000;
+            this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.richTextBox2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(6, 51);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(171, 26);
+            this.panel1.TabIndex = 3;
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.Location = new System.Drawing.Point(118, 3);
+            this.richTextBox2.Multiline = false;
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.richTextBox2.Size = new System.Drawing.Size(50, 20);
+            this.richTextBox2.TabIndex = 1;
+            this.richTextBox2.TabStop = false;
+            this.richTextBox2.Text = "88.0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Speed (mm/s):";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(684, 461);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.iLog);
@@ -327,18 +297,17 @@
             this.MaximizeBox = false;
             this.Name = "Main";
             this.Text = "Label Output Sensor";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.iInterface.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iShow)).EndInit();
             this.iConfiguration.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.iPannelChooseFolder.ResumeLayout(false);
             this.iPannelChooseFolder.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,19 +327,16 @@
         private System.Windows.Forms.RadioButton iFromCamera;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox iShow;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RichTextBox iDistance2Label;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox iListCamera;
         private System.Windows.Forms.RadioButton iFromFolder;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.Label label1;
     }
 }
 

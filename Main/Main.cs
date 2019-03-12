@@ -21,7 +21,7 @@ namespace Main
         private static Image<Bgr, byte> My_Image;
         
         //private static string _Link_Image = @"C:\Users\Admin\Desktop\temto\IMG0001.jpg";
-        private static string _Link_Image = @"C:\Users\Admin\Desktop\temnho\IMG0002.jpg";
+        private static string _Link_Image = @"C:\Users\Admin\Desktop\Baumer Image Records\4\IMG0005.jpg";
         int xxx = 5;
         public Main()
         {
@@ -57,18 +57,17 @@ namespace Main
             }
             else
                 My_Image = _Camera.Capture_Image();
-            // handling image
             My_Image = Vision.RoiImage(My_Image);
-            Mat aa = new Mat();
             using (VectorOfVectorOfPoint contours = Vision.FindContours(My_Image))
             {
-                CvInvoke.DrawContours(My_Image, contours,-1, new MCvScalar(0, 0, 255));
+                CvInvoke.DrawContours(My_Image, contours, -1, new MCvScalar(0, 0, 255));
                 iLog.Text = My_Image.Size.ToString();
+                var M = CvInvoke.Moments(contours[1]);
                 
-                for (int i=0;i<contours.Size;i++)
-                {
-                    CvInvoke.FitLine(contours[i], aa, DistType.C, 0.1, 0.1, 0.1);
-                }
+                Point[] P =  Vision.GetCenter(contours);
+                for (int i = 0; i < P.Length; i++)
+                    CvInvoke.Circle(My_Image, P[i], 2, new MCvScalar(0, 255, 0), 2);
+                int kc = Vision.CalculatorDistance(P);
 
 
 
@@ -95,10 +94,30 @@ namespace Main
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            string link = @"C:\Users\Admin\Desktop\temnho\VLG-12M_8765441318_190309-164404\IMG" + xxx.ToString("D4") + ".JPG";
+            string link = @"C:\Users\Admin\Desktop\Baumer Image Records\4\IMG" + xxx.ToString("D4") + ".JPG";
             _Link_Image = link;
             iHandling();
             xxx += 5;
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MyCamera _Camera = new MyCamera();
+            Mat im;
+            if (iFromCamera.Checked == false)
+            {
+                im = CvInvoke.Imread(_Link_Image);
+                My_Image = im.ToImage<Bgr, byte>();
+                im.Dispose();
+            }
+            else
+                My_Image = _Camera.Capture_Image();
+            iShow.Image = Vision.TestRoi(My_Image).ToBitmap();
         }
     }
 }
